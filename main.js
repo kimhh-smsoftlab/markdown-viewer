@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 let fs = require("fs");
 let path = require("path");
 
@@ -32,4 +32,13 @@ app.on("window-all-closed", function () {
     if (process.platform !== "darwin") {
         app.quit();
     }
+});
+
+ipcMain.on("show-open-dialog", (event, arg) => {
+    const options = {
+        properties: ["openDirectory"],
+    };
+    const result = dialog.showOpenDialogSync(options);
+
+    event.sender.send("open-dialog-paths-selected", result);
 });

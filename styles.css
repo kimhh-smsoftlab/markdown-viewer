@@ -1,16 +1,58 @@
-.content-wrap {
+* {
+    box-sizing: border-box;
+}
+html body img {
+    max-width: 100%;
+}
+
+body {
+    background-color: #fafafa;
+    margin: 0px;
+}
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+}
+.page-wrapper {
+    padding: 20px;
+    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
 }
-
-.content-wrap > div {
+.wrapper {
     flex: 1;
+    overflow: hidden;
 }
 
-.sidebar > div:hover {
+.header {
+    overflow: hidden;
+    height: 120px;
+    margin-bottom: -120px;
+}
+
+.main {
+    padding-top: 120px;
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    border: 1px solid #dddddd;
+    width: 180px;
+}
+
+.sidebar li:hover {
     background-color: aqua;
 }
 
-textarea {
-    width: 100%;
+.right {
+    border: 1px solid #dddddd;
+    width: calc(100% - 180px);
+}
+.right-content {
+    overflow: auto;
     height: 100%;
+    padding: 0px 10px;
 }
